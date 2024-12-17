@@ -3,14 +3,18 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 #[Entity(repositoryClass: UserRepository::class)]
@@ -25,9 +29,11 @@ class User implements UserInterface
         ];
 
     #[Column, Id, GeneratedValue(strategy: 'SEQUENCE')]
+    #[Groups(['user:read'])]
     private ?int $id = 0;
 
     #[Column(unique: true), NotBlank]
+    #[Groups(['user:read'])]
     private string $identifier = '*';
 
     /**
@@ -50,6 +56,17 @@ class User implements UserInterface
 
     #[Column(nullable: true)]
     private ?int $gitLabId = null;
+
+    /**
+     * @var Collection<int, Feed>
+     */
+    #[OneToMany(targetEntity: Feed::class, mappedBy: 'owner')]
+    private Collection $feeds;
+
+    public function __construct()
+    {
+        $this->feeds = new ArrayCollection();
+    }
 
     /**
      * @return array{
@@ -75,6 +92,11 @@ class User implements UserInterface
     {
         $this->id = $data['id'] ?? null;
         $this->identifier = (string) ($data['identifier'] ?? null);
+    }
+
+    public function __toString(): string
+    {
+        return $this->identifier;
     }
 
     #[\Override]
@@ -191,6 +213,36 @@ class User implements UserInterface
     public function setGitLabId(?int $gitLabId): self
     {
         $this->gitLabId = $gitLabId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Feed>
+     */
+    public function getFeeds(): Collection
+    {
+        return $this->feeds;
+    }
+
+    public function addFeed(Feed $feed): static
+    {
+        if (!$this->feeds->contains($feed)) {
+            $this->feeds->add($feed);
+            $feed->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFeed(Feed $feed): static
+    {
+        if ($this->feeds->removeElement($feed)) {
+            // set the owning side to null (unless already changed)
+            if ($feed->getOwner() === $this) {
+                $feed->setOwner(null);
+            }
+        }
 
         return $this;
     }

@@ -11,6 +11,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">GuestMenu</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_category_index') }}">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_feed_index') }}">Feeds</a>
+                </li>
                 {% if app.user %}
                     <li>
                         <a class="nav-link" href="#">UserMenu</a>

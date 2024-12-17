@@ -10,3 +10,11 @@ main > .container {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+.list-group-item a {
+    color: blue;
+}
+
+.list-group-item a:visited {
+    color: cornflowerblue;
+}
