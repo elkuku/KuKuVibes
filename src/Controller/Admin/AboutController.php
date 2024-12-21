@@ -10,8 +10,10 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/admin/about', name: 'app_admin_about', methods: ['GET'])]
+#[IsGranted('ROLE_ADMIN')]
 class AboutController extends BaseController
 {
     public function __invoke(

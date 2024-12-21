@@ -12,8 +12,10 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/admin/logview', name: 'app_admin_logview', methods: ['GET'])]
+#[IsGranted('ROLE_ADMIN')]
 class LogviewController extends BaseController
 {
     public function __invoke(
