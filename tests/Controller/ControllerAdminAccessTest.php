@@ -20,15 +20,46 @@ class ControllerAdminAccessTest extends ControllerBaseTest
             'login' => [
                 'statusCodes' => ['GET' => 200],
             ],
-            /*
-            'app_profile' => [
+            'app_category_index' => [
+                'statusCodes' => ['GET' => 200],
+            ],
+            'app_category_new' => [
                 'statusCodes' => ['GET' => 200, 'POST' => 200],
             ],
-            @todo WHY?????
-            'app_profile' => [
+            'app_category_show' => [
+                'statusCodes' => ['GET' => 200],
+            ],
+            'app_category_edit' => [
                 'statusCodes' => ['GET' => 200, 'POST' => 200],
             ],
-*/
+            'app_category_delete' => [
+                'statusCodes' => ['POST' => 303],
+            ],
+
+              'app_feed_index' => [
+                'statusCodes' => ['GET' => 200],
+            ],
+            'app_feed_new' => [
+                'statusCodes' => ['GET' => 200, 'POST' => 200],
+            ],
+            'app_feed_show' => [
+                'statusCodes' => ['GET' => 200],
+            ],
+            'app_feed_edit' => [
+                'statusCodes' => ['GET' => 200, 'POST' => 200],
+            ],
+            'app_feed_delete' => [
+                'statusCodes' => ['POST' => 303],
+            ],
+            'app_feed_fetch' => [
+                'statusCodes' => ['GET' => 200],
+            ],
+            'app_admin_about' => [
+                'statusCodes' => ['GET' => 200],
+            ],
+            'app_admin_logview' => [
+                'statusCodes' => ['GET' => 200],
+            ],
         ];
 
     /**
@@ -54,7 +85,7 @@ class ControllerAdminAccessTest extends ControllerBaseTest
         /**
          * @var \Symfony\Component\Security\Core\User\UserInterface $user
          */
-        $user = $userRepository->findOneBy(['identifier' => 'user']);
+        $user = $userRepository->findOneBy(['identifier' => 'admin']);
         $client->loginUser($user);
 
         $this->runTests($client);

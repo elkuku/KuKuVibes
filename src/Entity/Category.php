@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
-class Category
+class Category implements \Stringable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -32,7 +32,7 @@ class Category
         $this->feeds = new ArrayCollection();
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return (string)$this->name;
     }
@@ -88,11 +88,9 @@ class Category
 
     public function removeFeed(Feed $feed): static
     {
-        if ($this->feeds->removeElement($feed)) {
-            // set the owning side to null (unless already changed)
-            if ($feed->getCategory() === $this) {
-                $feed->setCategory(null);
-            }
+        // set the owning side to null (unless already changed)
+        if ($this->feeds->removeElement($feed) && $feed->getCategory() === $this) {
+            $feed->setCategory(null);
         }
 
         return $this;

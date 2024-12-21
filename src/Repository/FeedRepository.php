@@ -53,7 +53,7 @@ class FeedRepository extends ServiceEntityRepository
         $pie->set_feed_url($feed->getUrl());
 
         if (false === $pie->init()) {
-            $message=$pie->error()?$pie->error():'Could not initialize Pie library';
+            $message= $pie->error() ?: 'Could not initialize Pie library';
             throw new \RuntimeException($message);
         }
 
@@ -77,6 +77,7 @@ class FeedRepository extends ServiceEntityRepository
                 'updated_date' => $item->get_updated_date(),
             ];
         }
+
         $DD->feed_items = $feed_items;
 
         return $DD;

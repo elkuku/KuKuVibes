@@ -91,6 +91,7 @@ final class FeedController extends AbstractController
         } catch (\Exception $exception) {
             $error = $exception->getMessage();
         }
+
         return $this->render('feed/show_partial.html.twig', [
                 'feedData' => $feed,
                 'feed' => $content,

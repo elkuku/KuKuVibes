@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
+use Stringable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -20,7 +21,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 #[Entity(repositoryClass: UserRepository::class)]
 #[Table(name: 'system_user')]
 #[UniqueEntity(fields: 'identifier', message: 'This identifier is already in use')]
-class User implements UserInterface
+class User implements UserInterface, Stringable
 {
     final public const ROLES
         = [
@@ -237,11 +238,9 @@ class User implements UserInterface
 
     public function removeFeed(Feed $feed): static
     {
-        if ($this->feeds->removeElement($feed)) {
-            // set the owning side to null (unless already changed)
-            if ($feed->getOwner() === $this) {
-                $feed->setOwner(null);
-            }
+        // set the owning side to null (unless already changed)
+        if ($this->feeds->removeElement($feed) && $feed->getOwner() === $this) {
+            $feed->setOwner(null);
         }
 
         return $this;

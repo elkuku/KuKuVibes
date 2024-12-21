@@ -36,9 +36,6 @@ class LogviewController extends BaseController
                 $lines = explode("\n", $contents);
                 foreach ($lines as $line) {
                     $line = trim($line);
-                    if (empty($line)) {
-                        continue;
-                    }
 
                     if (str_starts_with($line, '>>>==============')) {
                         if (is_null($entry)) {
@@ -71,13 +68,12 @@ class LogviewController extends BaseController
 
                     $entry .= $line . "\n";
                 }
-              //  dd($contents,$entries);
             } else {
-
+                // No logfile :(
             }
 
-        } catch (IOException $exception) {
-            $this->addFlash('danger', $exception->getMessage());
+        } catch (IOException $ioException) {
+            $this->addFlash('danger', $ioException->getMessage());
         }
 
 

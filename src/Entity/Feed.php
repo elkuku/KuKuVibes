@@ -36,14 +36,12 @@ class Feed
     /**
      * @return array{
      *     id: integer|null,
-     *     identifier: string|null
      * }
      */
     public function __serialize(): array
     {
         return [
             'id' => $this->id,
-           // 'identifier' => $this->identifier,
         ];
     }
 
