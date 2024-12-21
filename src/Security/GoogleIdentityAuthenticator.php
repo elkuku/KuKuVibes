@@ -77,7 +77,7 @@ class GoogleIdentityAuthenticator extends AbstractAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('default'));
+        return new RedirectResponse($this->urlGenerator->generate('app_default'));
     }
 
     #[\Override]
