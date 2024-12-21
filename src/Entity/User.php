@@ -64,9 +64,16 @@ class User implements UserInterface, Stringable
     #[OneToMany(targetEntity: Feed::class, mappedBy: 'owner')]
     private Collection $feeds;
 
+    /**
+     * @var Collection<int, Category>
+     */
+    #[ORM\OneToMany(targetEntity: Category::class, mappedBy: 'owner')]
+    private Collection $categories;
+
     public function __construct()
     {
         $this->feeds = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     /**
@@ -241,6 +248,36 @@ class User implements UserInterface, Stringable
         // set the owning side to null (unless already changed)
         if ($this->feeds->removeElement($feed) && $feed->getOwner() === $this) {
             $feed->setOwner(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Category>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+            $category->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): static
+    {
+        if ($this->categories->removeElement($category)) {
+            // set the owning side to null (unless already changed)
+            if ($category->getOwner() === $this) {
+                $category->setOwner(null);
+            }
         }
 
         return $this;

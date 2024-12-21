@@ -27,6 +27,9 @@ class Category implements \Stringable
     #[ORM\OneToMany(targetEntity: Feed::class, mappedBy: 'category')]
     private Collection $feeds;
 
+    #[ORM\ManyToOne(inversedBy: 'categories')]
+    private ?User $owner = null;
+
     public function __construct()
     {
         $this->feeds = new ArrayCollection();
@@ -92,6 +95,18 @@ class Category implements \Stringable
         if ($this->feeds->removeElement($feed) && $feed->getCategory() === $this) {
             $feed->setCategory(null);
         }
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): static
+    {
+        $this->owner = $owner;
 
         return $this;
     }
