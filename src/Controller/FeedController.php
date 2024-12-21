@@ -7,12 +7,13 @@ use App\Form\FeedType;
 use App\Repository\FeedRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/feed')]
+#[IsGranted('ROLE_ADMIN')]
 final class FeedController extends AbstractController
 {
     #[Route(name: 'app_feed_index', methods: ['GET'])]
