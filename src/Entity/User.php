@@ -67,7 +67,7 @@ class User implements UserInterface, Stringable
     /**
      * @var Collection<int, Category>
      */
-    #[ORM\OneToMany(targetEntity: Category::class, mappedBy: 'owner')]
+    #[OneToMany(targetEntity: Category::class, mappedBy: 'owner')]
     private Collection $categories;
 
     public function __construct()
@@ -273,11 +273,9 @@ class User implements UserInterface, Stringable
 
     public function removeCategory(Category $category): static
     {
-        if ($this->categories->removeElement($category)) {
-            // set the owning side to null (unless already changed)
-            if ($category->getOwner() === $this) {
-                $category->setOwner(null);
-            }
+        // set the owning side to null (unless already changed)
+        if ($this->categories->removeElement($category) && $category->getOwner() === $this) {
+            $category->setOwner(null);
         }
 
         return $this;

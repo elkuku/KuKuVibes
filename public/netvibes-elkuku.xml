@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+ <head>
+  <title>El KuKu</title>
+  <type>Private</type>
+  <creationDate>2025-04-15 15:25:32</creationDate>
+ </head>
+ <body>
+  <outline title="General" cols="3" layout="3-0">
+   <outline type="Flickr" title="Recent Uploads tagged colorful" row="225" col="1">
+    <outline history="" feed="http://www.flickr.com/services/feeds/photos_public.gne?tags=colorful&amp;format=rss_200" layout="0" limit="20" openLinks="0" offset="19" fastRefresh="false" username="" color="yellow"/>
+   </outline>
+   <outline title="Heise online News" xmlUrl="http://www.heise.de/newsticker/heise.rdf" htmlUrl="https://www.heise.de/" type="rss" row="100" col="2"/>
+   <outline title="netzpolitik.org" xmlUrl="https://netzpolitik.org/feed" htmlUrl="https://netzpolitik.org/" type="rss" row="550" col="3"/>
+   <outline title="The Register" xmlUrl="http://www.theregister.co.uk/headlines.atom" htmlUrl="https://www.theregister.com/" type="rss" row="1100" col="3"/>
+  </outline>
+  <outline title="Politix" cols="3" layout="3-0">
+   <outline title="El Unuverso" xmlUrl="https://www.eluniverso.com/arc/outboundfeeds/rss/?outputType=xml" htmlUrl="https://eluniverso.com/" type="rss" row="250" col="1"/>
+   <outline title="El Comercio" xmlUrl="https://www.elcomercio.com/rss/" htmlUrl="https://www.elcomercio.com/" type="rss" row="500" col="1"/>
+   <outline title="Diario La Hora » Feed" xmlUrl="https://www.lahora.com.ec/feed/" htmlUrl="https://www.lahora.com.ec/" type="rss" row="3500" col="1"/>
+   <outline title="Primicias » Feed" xmlUrl="https://www.primicias.ec/feed/" htmlUrl="https://www.primicias.ec/" type="rss" row="4000" col="1"/>
+   <outline title="RADIO PICHINCHA » Feed" xmlUrl="https://www.radiopichincha.com/feed/" htmlUrl="https://www.radiopichincha.com/" type="rss" row="4500" col="1"/>
+   <outline title="taz.de - taz.de" xmlUrl="https://taz.de/rss.xml" htmlUrl="https://taz.de/!p4608/" type="rss" row="375" col="2"/>
+   <outline title="amerika21 - Ecuador" xmlUrl="https://amerika21.de/geo/ecuador/feed" htmlUrl="https://amerika21.de/feed/6/0" type="rss" row="750" col="2"/>
+   <outline title="Radio La Calle » Feed" xmlUrl="https://radiolacalle.com/feed/" htmlUrl="https://radiolacalle.com/" type="rss" row="1500" col="2"/>
+   <outline title="El Grito del Sur » Feed" xmlUrl="https://elgritodelsur.com.ar/feed" htmlUrl="https://elgritodelsur.com.ar/" type="rss" row="3000" col="2"/>
+   <outline title="Titanic RSS - der endgültige Feed" xmlUrl="https://www.titanic-magazin.de/newsticker/rss.xml" htmlUrl="https://www.titanic-magazin.de/" type="rss" row="250" col="3"/>
+   <outline title="Titanic - Startcartoon Feed" xmlUrl="https://www.titanic-magazin.de/sc-rss/?no_cache=1" htmlUrl="https://www.titanic-magazin.de/postkarten/kategorie/aktuelle-kartenstartcartoons/" type="rss" row="375" col="3"/>
+   <outline title="Deutsche Welle: DW.com Deutsch" xmlUrl="https://rss.dw.com/xml/rss-de-all" htmlUrl="https://www.dw.com/german/?maca=de-rss-de-all-1119-xml-mrss" type="rss" row="500" col="3"/>
+   <outline title="Deutsche Welle: DW.com - Nachrichten" xmlUrl="https://rss.dw.com/xml/rss-de-news" htmlUrl="https://www.dw.com/german/?maca=de-rss-de-news-1089-xml-mrss" type="rss" row="1000" col="3"/>
+   <outline title="Deutsche Welle: DW.com Themen des Tages" xmlUrl="https://rss.dw.com/xml/rss-de-top" htmlUrl="https://www.dw.com/german/?maca=de-rss-de-top-1016-xml-mrss" type="rss" row="1500" col="3"/>
+  </outline>
+  <outline title="Dart &amp; Flutter" cols="3" layout="3-0">
+   <outline title="RSS" xmlUrl="https://medium.com/feed/flutter" htmlUrl="https://medium.com/flutter?source=rss----4da7dfd21a33---4" type="rss" row="1000" col="1"/>
+  </outline>
+  <outline title="Dart" cols="3" layout="3-0">
+   <outline title="This Week in Dart" xmlUrl="https://thisweekindart.dev/atom.xml" htmlUrl="" type="rss" row="1000" col="1"/>
+  </outline>
+  <outline title="PHP" icon="https://www.php.net/favicon.ico" cols="3" layout="3-0">
+   <outline title="Symfony Blog" xmlUrl="https://feeds.feedburner.com/symfony/blog" htmlUrl="https://symfony.com/blog/" type="rss" row="2000" col="1"/>
+   <outline title="PHP Classes: Latest entries" xmlUrl="http://feeds.feedburner.com/phpclasses" htmlUrl="https://www.phpclasses.org/browse/latest/latest.html" type="rss" row="3000" col="1"/>
+   <outline title="Rector Blog RSS" xmlUrl="https://getrector.org/rss.xml" htmlUrl="https://getrector.com/rss.xml" type="rss" row="3500" col="1"/>
+   <outline title="Blog feed with technical articles around PHP and screencast and tutorial updates from SymfonyCasts.c" xmlUrl="https://feeds.feedburner.com/knpuniversity" htmlUrl="https://symfonycasts.com/blog" type="rss" row="4000" col="1"/>
+   <outline title="JetBrains PhpStorm Blog" xmlUrl="http://blog.jetbrains.com/phpstorm/feed/" htmlUrl="https://blog.jetbrains.com/" type="rss" row="250" col="2"/>
+   <outline title="PHP.net news &amp; announcements" xmlUrl="http://php.net/feed.atom" htmlUrl="" type="rss" row="1000" col="2"/>
+   <outline title="Fabien Potencier" xmlUrl="http://feeds.fabien.potencier.org/aidedecamp" htmlUrl="http://fabien.potencier.org/" type="rss" row="2000" col="2"/>
+   <outline title="stitcher.io" xmlUrl="https://stitcher.io/rss" htmlUrl="https://www.stitcher.io/rss" type="rss" row="3000" col="2"/>
+   <outline title="Tomas Votruba writes about PHP and education" xmlUrl="https://tomasvotruba.com/rss.xml" htmlUrl="https://tomasvotruba.com/" type="rss" row="4000" col="2"/>
+   <outline type="Reddit" title="Reddit" row="1500" col="3">
+    <outline subreddits="php" activeSubreddit="php"/>
+   </outline>
+   <outline title="RSS" xmlUrl="https://blog.expo.io/feed" htmlUrl="https://blog.expo.dev/?source=rss----d397bd202faa---4" type="rss" row="2500" col="3"/>
+   <outline title="Wouter Carabain » Feed" xmlUrl="https://woutercarabain.com/feed/" htmlUrl="https://woutercarabain.com/" type="rss" row="3500" col="3"/>
+  </outline>
+  <outline title="Linux" icon="https://www.kernel.org/theme/images/logos/favicon.png" cols="3" layout="3-0">
+   <outline title="DistroWatch.com: News" xmlUrl="https://distrowatch.com/news/dw.xml" htmlUrl="https://distrowatch.com/" type="rss" row="125" col="1"/>
+   <outline title="LinuxInsider" xmlUrl="http://www.linuxinsider.com/perl/syndication/rssfull.pl" htmlUrl="https://www.linuxinsider.com/?rss=1" type="rss" row="2000" col="1"/>
+   <outline title="&lt;a href=&quot;http:&amp;#x2F;&amp;#x2F;www.linuxtoday.com&amp;#x2F;&quot; target=&quot;_blank&quot;&gt;unbenannt&lt;/a&gt;" xmlUrl="http://www.linuxtoday.com/biglt.rss" htmlUrl="https://www.linuxtoday.com/" type="rss" row="250" col="2"/>
+   <outline title="&lt;a href=&quot;http:&amp;#x2F;&amp;#x2F;www.howtoforge.com&quot; target=&quot;_blank&quot;&gt;Linux Howtos and Tutorials -&lt;/a&gt;" xmlUrl="http://www.howtoforge.com/feed.rss" htmlUrl="https://www.howtoforge.com/" type="rss" row="1250" col="2"/>
+   <outline title="Arch Linux News Updates" xmlUrl="https://archlinux.org/feeds/news/" htmlUrl="https://archlinux.org/news/" type="rss" row="250" col="3"/>
+   <outline title="KDE neon Developers' Blog » Feed" xmlUrl="https://blog.neon.kde.org/index.php/feed/" htmlUrl="https://blog.neon.kde.org/" type="rss" row="500" col="3"/>
+  </outline>
+  <outline title="debian" icon="https://www.debian.org/favicon.ico" cols="3" layout="3-0">
+   <outline title="Debian News" xmlUrl="http://www.debian.org/News/news" htmlUrl="https://www.debian.org/News/" type="rss" row="500" col="1"/>
+   <outline title="Debian Security" xmlUrl="http://www.debian.org/security/dsa" htmlUrl="https://www.debian.org/security/dsa.rdf" type="rss" row="1000" col="2"/>
+   <outline title="The Debian Administrator's Handbook" xmlUrl="http://debian-handbook.info/feed/" htmlUrl="https://debian-handbook.info/" type="rss" row="1000" col="3"/>
+  </outline>
+  <outline title="RasPi" icon="http://www.raspberrypi.org/wp-content/themes/mind-control/images/favicon.png" cols="3" layout="3-0">
+   <outline title="Raspberry Pi Foundation blog: news, announcements, stories, ideas" xmlUrl="http://www.raspberrypi.org/blog/feed/" htmlUrl="https://www.raspberrypi.org/blog/" type="rss" row="1000" col="1"/>
+  </outline>
+  <outline title="DivertiX" icon="http://cdn.netvibes.com/img/icons/emoticon_wink.gif" cols="3" layout="3-0">
+   <outline title="Der Postillon - Abo" xmlUrl="http://feeds.feedburner.com/blogspot/rkEL" htmlUrl="https://follow.it/der-postillon-abo" type="rss" row="1000" col="1"/>
+   <outline title="&lt;a href=&quot;http:&amp;#x2F;&amp;#x2F;www.ibash.de&amp;#x2F;&quot; target=&quot;_blank&quot;&gt;ibash.de - Neueste Zitate&lt;/a&gt;" xmlUrl="http://www.ibash.de/neueste-zitate.xml" htmlUrl="http://www.ibash.de/" type="rss" row="1000" col="3"/>
+  </outline>
+ </body>
+</opml>

@@ -27,12 +27,11 @@ class AppFixtures extends Fixture
             ->setName('TEST');
         $manager->persist($category);
 
-$manager->persist((new Feed())
+        $manager->persist((new Feed())
             ->setName('TEST')
-->setUrl('TEST.com')
-->setCategory($category)
-->setOwner($user));
-
+            ->setUrl('TEST.com')
+            ->setCategory($category)
+            ->setOwner($user));
 
         $manager->flush();
     }
