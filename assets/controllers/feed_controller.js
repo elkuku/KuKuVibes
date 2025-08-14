@@ -16,7 +16,7 @@ export default class extends Controller {
             }
 
             const text = await response.text();
-            console.log(text);
+            //console.log(text);
             this.element.innerHTML = text;
         } catch (error) {
             console.error(error.message);

@@ -15,8 +15,19 @@ class DefaultController extends BaseController
     {
         $user = $this->getUser();
 
+        if ($user) {
+            $categories = $user->getCategories();
+            $selectedCategory = $categories[0];//TODO: user select category
+
+            return $this->render('default/index.html.twig', [
+                'categories' => $categories,
+                'selectedCategory' => $selectedCategory,
+            ]);
+        }
+
         return $this->render('default/index.html.twig', [
-            'feeds' => $user ? $feedRepository->findUserFeeds($user) : [],
+            'feeds' => [],
+            'categories' => [],
         ]);
     }
 }

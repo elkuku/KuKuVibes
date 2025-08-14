@@ -28,5 +28,5 @@
 
     {{ include('feed/_delete_form.html.twig') }}
     <hr>
-    <div {{ stimulus_controller('feed') }}></div>
+    <div {{ stimulus_controller('feed', {'id':feed.id}) }}></div>
 {% endblock %}

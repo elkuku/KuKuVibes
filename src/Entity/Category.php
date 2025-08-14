@@ -28,7 +28,11 @@ class Category implements \Stringable
     private Collection $feeds;
 
     #[ORM\ManyToOne(inversedBy: 'categories')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $owner = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $icon = null;
 
     public function __construct()
     {
@@ -107,6 +111,18 @@ class Category implements \Stringable
     public function setOwner(?User $owner): static
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): static
+    {
+        $this->icon = $icon;
 
         return $this;
     }

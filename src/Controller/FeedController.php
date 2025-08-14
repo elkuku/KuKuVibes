@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Feed;
 use App\Form\FeedType;
 use App\Repository\FeedRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -14,7 +14,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/feed')]
 #[IsGranted('ROLE_ADMIN')]
-final class FeedController extends AbstractController
+final class FeedController extends BaseController
 {
     #[Route(name: 'app_feed_index', methods: ['GET'])]
     public function index(FeedRepository $feedRepository): Response
@@ -96,6 +96,18 @@ final class FeedController extends AbstractController
                 'feedData' => $feed,
                 'feed' => $content,
                 'error' => $error,
+            ]
+        );
+    }
+
+    #[Route('/{id}/fetch-category', name: 'app_feed_category_fetch', methods: ['GET'])]
+    public function fetchCategory(Category $category, FeedRepository $feedRepository): Response
+    {
+        $user = $this->getUser();
+        $feeds = $feedRepository->findByUserAndCategory($user, $category);
+
+        return $this->render('feed/show_category.html.twig', [
+                'feeds' => $feeds,
             ]
         );
     }

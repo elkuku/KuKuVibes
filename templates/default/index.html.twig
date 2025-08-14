@@ -10,21 +10,35 @@
 {% endblock %}
 
 {% block body %}
-    <h2 class="mt-5">Symfony Playground Two <span class="bg-logo"></span></h2>
     {% if app.user %}
-        <h4>Welcome {{ app.user.param('user_name') ?: app.user.userIdentifier }}!</h4>
-        <div class="card-group">
-            {% for feed in feeds %}
-                <div class="card" {{ stimulus_controller('feed', {'id':feed.id}) }}></div>
-            {% else %}
-                <h4>No feeds yet :(</h4>
-                <p>Go and <a href="{{ path('app_feed_new') }}">create one</a>!</p>
-            {% endfor %}
+
+        <div {{ stimulus_controller('feed-admin') }}>
+
+            <nav class="nav nav-tabs nav-justified">
+                {% for category in categories %}
+                    <a
+                            class="nav-link"
+                            href="#"
+                            {{ stimulus_action('feed-admin', 'changeCategory', 'click', {'id':category.id}) }}
+                            {{ stimulus_target('feed-admin', 'tab') }}
+                    >
+                        {{ category }}
+                    </a>
+                {% endfor %}
+            </nav>
+
+            <div class="container" {{ stimulus_target('feed-admin', 'container') }}>
+
+            </div>
+
         </div>
+
     {% else %}
+
         <h4>
             Use the <code>symfony console user-admin</code> command to create a user so you can
             <a href="{{ path('login') }}">log in</a>!
         </h4>
+
     {% endif %}
 {% endblock %}

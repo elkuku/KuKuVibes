@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Feed;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -27,20 +28,10 @@ class FeedRepository extends ServiceEntityRepository
             ->andWhere('f.owner = :val')
             ->setParameter('val', $user)
             ->orderBy('f.id', 'ASC')
-            //  ->setMaxResults(10)
+            ->setMaxResults(10)
             ->getQuery()
             ->getResult();
     }
-
-    //    public function findOneBySomeField($value): ?Feed
-    //    {
-    //        return $this->createQueryBuilder('f')
-    //            ->andWhere('f.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 
     public function fetch(Feed $feed): \stdClass
     {
@@ -53,7 +44,7 @@ class FeedRepository extends ServiceEntityRepository
         $pie->set_feed_url($feed->getUrl());
 
         if (false === $pie->init()) {
-            $message= $pie->error() ?: 'Could not initialize Pie library';
+            $message = $pie->error() ?: 'Could not initialize Pie library';
             throw new \RuntimeException($message);
         }
 
@@ -66,7 +57,7 @@ class FeedRepository extends ServiceEntityRepository
 
         $feed_items = [];
 
-        foreach ($pie->get_items() as $item) {
+        foreach ($pie->get_items(0, 10) as $item) {
             $feed_items[] = [
                 'title' => $item->get_title(),
                 'link' => $item->get_permalink(),
@@ -81,5 +72,21 @@ class FeedRepository extends ServiceEntityRepository
         $DD->feed_items = $feed_items;
 
         return $DD;
+    }
+
+    /**
+     * @return Feed[] Returns an array of Feed objects
+     */
+    public function findByUserAndCategory(User $user, Category $category): array
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.owner = :val')
+            ->andWhere('f.category = :category')
+            ->setParameter('val', $user)
+            ->setParameter('category', $category)
+            ->setMaxResults(10)
+            ->orderBy('f.id', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 }

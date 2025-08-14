@@ -23,6 +23,9 @@ class Feed
     #[Groups(['feed:read'])]
     private ?string $url = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $html_url = null;
+
     #[ORM\ManyToOne(inversedBy: 'feeds')]
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(['feed:read'])]
@@ -94,6 +97,18 @@ class Feed
     public function setOwner(?User $owner): static
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getHtmlUrl(): ?string
+    {
+        return $this->html_url;
+    }
+
+    public function setHtmlUrl(?string $html_url): static
+    {
+        $this->html_url = $html_url;
 
         return $this;
     }

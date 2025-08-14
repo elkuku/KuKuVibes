@@ -1,0 +1,12 @@
+{% block body %}
+    <div class="row row-cols-4">
+        {% for feed in feeds %}
+            <div class="col" {{ stimulus_controller('feed', {'id':feed.id}) }}></div>
+        {% else %}
+            <div class="col">
+                <h4>No feeds yet :(</h4>
+                <p>Go and <a href="{{ path('app_feed_new') }}">create one</a>!</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
